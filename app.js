@@ -1,17 +1,25 @@
 import questions from "./questions.js";
 
-const questionBox = document.getElementsByClassName("question-box")[0];
+const root = document.getElementsByClassName("container")[0];
 
-for (let item of questions) {
-  console.log(item);
+function generate() {
+  for (let item of questions) {
+    console.log(item);
 
-  questionBox.innerHTML = `
-  <h3 id="question">${item.question}</h3>
-  <div class="answers">
-          <p>A: ${item.options[0]}</p>
-          <p>B: ${item.options[1]}</p>
-          <p>C: ${item.options[2]}</p>
-          <p>D: ${item.options[3]}</p>
-  </div>
-  `;
+    const questionBox = document.createElement("div");
+    questionBox.className = "question-box";
+
+    questionBox.innerHTML = `
+        <h3 id="question">${item.question}</h3>
+        <div class="answers">
+          <p class="answer">A: ${item.options[0]}</p>
+          <p class="answer">B: ${item.options[1]}</p>
+          <p class="answer">C: ${item.options[2]}</p>
+          <p class="answer">D: ${item.options[3]}</p>
+        </div>
+    `;
+    root.appendChild(questionBox);
+  }
 }
+
+generate();
