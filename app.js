@@ -1,15 +1,19 @@
 import questions from "./questions.js";
 
 const root = document.getElementsByClassName("container")[0];
+const currentQuestionIndex = 0;
 
-function generate() {
-  for (let item of questions) {
-    console.log(item);
+function displayQuestion(index) {
+  // Reset container
+  root.innerHTML = "";
 
-    const questionBox = document.createElement("div");
-    questionBox.className = "question-box";
+  // Get current question
+  const item = questions[index];
 
-    questionBox.innerHTML = `
+  const questionBox = document.createElement("div");
+  questionBox.className = "question-box";
+
+  questionBox.innerHTML = `
         <h3 id="question">${item.question}</h3>
         <div class="answers">
           <p class="answer">A: ${item.options[0]}</p>
@@ -18,8 +22,7 @@ function generate() {
           <p class="answer">D: ${item.options[3]}</p>
         </div>
     `;
-    root.appendChild(questionBox);
-  }
+  root.appendChild(questionBox);
 }
 
-generate();
+displayQuestion(currentQuestionIndex);
