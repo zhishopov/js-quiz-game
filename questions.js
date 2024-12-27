@@ -267,3 +267,5 @@ const questions = [
     difficulty: "hard",
   },
 ];
+
+export default questions;
