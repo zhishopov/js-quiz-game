@@ -1,6 +1,7 @@
 import questions from "./questions.js";
 
 const root = document.getElementsByClassName("container")[0];
+root.addEventListener("click", checkAnswer);
 const currentQuestionIndex = 0;
 
 function displayQuestion(index) {
@@ -16,7 +17,7 @@ function displayQuestion(index) {
   questionBox.innerHTML = `
         <h3 id="question">${item.question}</h3>
         <div class="answers">
-          <p class="answer">A: ${item.options[0]}</p>
+          <p class="answer correct">A: ${item.options[0]}</p>
           <p class="answer">B: ${item.options[1]}</p>
           <p class="answer">C: ${item.options[2]}</p>
           <p class="answer">D: ${item.options[3]}</p>
@@ -26,3 +27,10 @@ function displayQuestion(index) {
 }
 
 displayQuestion(currentQuestionIndex);
+
+function checkAnswer(event) {
+  const correctAnswer = event.target;
+  if (correctAnswer.classList.contains("correct")) {
+    correctAnswer.style.backgroundColor = "green";
+  }
+}
