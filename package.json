@@ -1,0 +1,15 @@
+{
+  "name": "js-quiz-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "questions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "js-quiz-game"
+  },
+  "author": "",
+  "license": "ISC"
+}
