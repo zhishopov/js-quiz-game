@@ -31,7 +31,7 @@
 }
 
 /* Styling the question title */
-.question-box p:first-of-type {
+#question {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 20px;
