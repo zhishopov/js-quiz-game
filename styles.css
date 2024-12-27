@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+}
+
+.question-box {
+  background-color: red;
+  margin-right: 10%;
+}
+
+.points-box {
+  background-color: green;
+}
