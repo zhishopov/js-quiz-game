@@ -1,21 +1,84 @@
+/* Resetting margins and paddings for a clean slate */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
+/* Styling the main container */
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10%;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Styling the question box */
 .question-box {
-  background-color: red;
-  margin-right: 10%;
+  flex: 2;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
 }
 
+/* Styling the question title */
+.question-box p:first-of-type {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+/* Styling answers in two columns */
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  gap: 10px;
+}
+
+.answers p {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  color: #333333;
+}
+
+.answers p:hover {
+  background-color: #1a73e8;
+  color: #ffffff;
+}
+
+/* Styling the points box */
 .points-box {
-  background-color: green;
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.points-box p {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #555555;
+}
+
+/* Adding hover effect for points */
+.points-box p:hover {
+  color: #1a73e8;
+  cursor: pointer;
 }
