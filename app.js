@@ -69,8 +69,20 @@ function checkAnswer(event) {
       <h2>Game Over! You selected the wrong answer!</h2>
       <button class="restart">Restart Game</button>
       `;
+
+      // Add event listener to restart button
+      const restartBtn = document.querySelector(".restart");
+      restartBtn.addEventListener("click", restartGame);
     }, 1000);
   }
 }
 
 // Restart Game
+function restartGame() {
+  // Using a random number for a question
+  const number = Math.round(Math.random() * 10);
+  console.log(number);
+
+  // currentQuestionIndex = 0;
+  displayQuestion(number);
+}
