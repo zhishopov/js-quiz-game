@@ -3,6 +3,7 @@ import questions from "./questions.js";
 const root = document.getElementsByClassName("container")[0];
 root.addEventListener("click", checkAnswer);
 let currentQuestionIndex = 0;
+let currentPoint = 0;
 
 function displayQuestion(index) {
   // Reset container
@@ -39,7 +40,32 @@ function displayQuestion(index) {
   root.appendChild(questionBox);
 }
 
+function displayPoints() {
+  const pointsBox = document.createElement("div");
+  pointsBox.className = "points-box";
+
+  pointsBox.innerHTML = `
+        <p class="point">1 point</p>
+        <p class="point">2 points</p>
+        <p class="point">3 points</p>
+        <p class="point">4 points</p>
+        <p class="point">5 points</p>
+        <p class="point">6 points</p>
+        <p class="point">7 points</p>
+        <p class="point">8 points</p>
+        <p class="point">9 points</p>
+        <p class="point">10 points</p>
+        <p class="point">11 points</p>
+        <p class="point">12 points</p>
+        <p class="point">13 points</p>
+        <p class="point">14 points</p>
+        <p class="point">15 points</p>`;
+
+  root.appendChild(pointsBox);
+}
+
 displayQuestion(currentQuestionIndex);
+displayPoints();
 
 function checkAnswer(event) {
   const correctAnswer = event.target;
@@ -56,6 +82,7 @@ function checkAnswer(event) {
   if (correctAnswer.classList.contains("correct")) {
     correctAnswer.style.backgroundColor = "green";
     showCountdown(5);
+    highlight();
 
     // Go to next question after a short time
     setTimeout(() => {
@@ -80,7 +107,7 @@ function checkAnswer(event) {
       // Add event listener to restart button
       const restartBtn = document.querySelector(".restart");
       restartBtn.addEventListener("click", restartGame);
-    }, 5000);
+    }, 3000);
   }
 }
 
@@ -94,34 +121,18 @@ function restartGame() {
   displayPoints();
 }
 
-function displayPoints() {
-  const pointsBox = document.createElement("div");
-  pointsBox.className = "points-box";
-
-  pointsBox.innerHTML = `
-        <p class="point">1 point</p>
-        <p class="point">2 points</p>
-        <p class="point">3 points</p>
-        <p class="point">4 points</p>
-        <p class="point">5 points</p>
-        <p class="point">6 points</p>
-        <p class="point">7 points</p>
-        <p class="point">8 points</p>
-        <p class="point">9 points</p>
-        <p class="point">10 points</p>
-        <p class="point">11 points</p>
-        <p class="point">12 points</p>
-        <p class="point">13 points</p>
-        <p class="point">14 points</p>
-        <p class="point">15 points</p>`;
-
-  root.appendChild(pointsBox);
-}
-displayPoints();
-
 function showCountdown(time) {
   const count = document.createElement("p");
   count.textContent = `Next question in ${time} seconds!`;
 
   root.querySelector(".question-box").appendChild(count);
+}
+
+function highlight() {
+  const points = document.querySelectorAll(".point");
+
+  if (currentPoint <= points.length) {
+    points[currentPoint].style.color = "green";
+    currentPoint++;
+  }
 }
