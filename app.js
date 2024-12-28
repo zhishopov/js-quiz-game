@@ -86,3 +86,28 @@ function restartGame() {
   // currentQuestionIndex = 0;
   displayQuestion(number);
 }
+
+function displayPoints() {
+  const pointsBox = document.createElement("div");
+  pointsBox.className = "points-box";
+
+  pointsBox.innerHTML = `
+        <p>1pt</p>
+        <p>2pts</p>
+        <p>3pts</p>
+        <p>4pts</p>
+        <p>5pts</p>
+        <p>6pts</p>
+        <p>7pts</p>
+        <p>8pts</p>
+        <p>9pts</p>
+        <p>10pts</p>
+        <p>11pts</p>
+        <p>12pts</p>
+        <p>13pts</p>
+        <p>14pts</p>
+        <p>15pts</p>`;
+
+  root.appendChild(pointsBox);
+}
+displayPoints();
