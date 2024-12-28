@@ -44,23 +44,23 @@ function displayPoints() {
   const pointsBox = document.createElement("div");
   pointsBox.className = "points-box";
 
-  pointsBox.innerHTML = `
-        <p class="point">1 point</p>
-        <p class="point">2 points</p>
-        <p class="point">3 points</p>
-        <p class="point">4 points</p>
-        <p class="point">5 points</p>
-        <p class="point">6 points</p>
-        <p class="point">7 points</p>
-        <p class="point">8 points</p>
-        <p class="point">9 points</p>
-        <p class="point">10 points</p>
-        <p class="point">11 points</p>
-        <p class="point">12 points</p>
-        <p class="point">13 points</p>
-        <p class="point">14 points</p>
-        <p class="point">15 points</p>`;
+  for (let i = 1; i <= 15; i++) {
+    const point = document.createElement("p");
+    point.className = "point";
+    point.textContent = `${i} point${i > 1 ? "s" : ""}`;
 
+    if (i <= currentPoint) {
+      point.style.color = "green";
+    }
+
+    pointsBox.appendChild(point);
+  }
+
+  // Clear old points and add updated points
+  const oldPointsBox = document.querySelector(".points-box");
+  if (oldPointsBox) {
+    root.removeChild(oldPointsBox);
+  }
   root.appendChild(pointsBox);
 }
 
