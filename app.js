@@ -86,11 +86,11 @@ function checkAnswer(event) {
 
 // Restart Game
 function restartGame() {
+  root.classList.remove("disabled");
   // Using a random number for a question
-  const number = Math.round(Math.random() * questions.length);
+  currentQuestionIndex = Math.round(Math.random() * questions.length);
 
-  // currentQuestionIndex = 0;
-  displayQuestion(number);
+  displayQuestion(currentQuestionIndex);
   displayPoints();
 }
 
