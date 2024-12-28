@@ -66,9 +66,11 @@ function checkAnswer(event) {
 
     setTimeout(() => {
       root.innerHTML = `
-      <h2>Game Over! You selected the wrong answer.</h2>
-      <button>Restart Game</button>
+      <h2>Game Over! You selected the wrong answer!</h2>
+      <button class="restart">Restart Game</button>
       `;
     }, 1000);
   }
 }
+
+// Restart Game
