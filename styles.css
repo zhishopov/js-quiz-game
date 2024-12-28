@@ -74,11 +74,6 @@
 .points-box p {
   margin-bottom: 8px;
   font-size: 20px;
+  font-weight: bold;
   color: #555555;
-}
-
-/* Adding hover effect for points */
-.points-box p:hover {
-  color: #3dff24;
-  cursor: pointer;
 }

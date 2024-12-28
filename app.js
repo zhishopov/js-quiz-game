@@ -43,9 +43,13 @@ displayQuestion(currentQuestionIndex);
 
 function checkAnswer(event) {
   const correctAnswer = event.target;
-  if (!correctAnswer.classList.contains("answer")) {
+  if (
+    !correctAnswer.classList.contains("answer") ||
+    root.classList.contains("disabled")
+  ) {
     return;
   }
+  root.classList.add("disabled");
 
   const answers = document.querySelectorAll(".answer");
 
@@ -55,8 +59,10 @@ function checkAnswer(event) {
 
     // Go to next question after a short time
     setTimeout(() => {
+      root.classList.remove("disabled");
       currentQuestionIndex++;
       displayQuestion(currentQuestionIndex);
+      displayPoints();
     }, 5000);
   } else {
     answers.forEach((answer) => {
@@ -74,15 +80,14 @@ function checkAnswer(event) {
       // Add event listener to restart button
       const restartBtn = document.querySelector(".restart");
       restartBtn.addEventListener("click", restartGame);
-    }, 1000);
+    }, 5000);
   }
 }
 
 // Restart Game
 function restartGame() {
   // Using a random number for a question
-  const number = Math.round(Math.random() * 10);
-  console.log(number);
+  const number = Math.round(Math.random() * questions.length);
 
   // currentQuestionIndex = 0;
   displayQuestion(number);
@@ -94,21 +99,21 @@ function displayPoints() {
   pointsBox.className = "points-box";
 
   pointsBox.innerHTML = `
-        <p>1 point</p>
-        <p>2 points</p>
-        <p>3 points</p>
-        <p>4 points</p>
-        <p>5 points</p>
-        <p>6 points</p>
-        <p>7 points</p>
-        <p>8 points</p>
-        <p>9 points</p>
-        <p>10 points</p>
-        <p>11 points</p>
-        <p>12 points</p>
-        <p>13 points</p>
-        <p>14 points</p>
-        <p>15 points</p>`;
+        <p class="point">1 point</p>
+        <p class="point">2 points</p>
+        <p class="point">3 points</p>
+        <p class="point">4 points</p>
+        <p class="point">5 points</p>
+        <p class="point">6 points</p>
+        <p class="point">7 points</p>
+        <p class="point">8 points</p>
+        <p class="point">9 points</p>
+        <p class="point">10 points</p>
+        <p class="point">11 points</p>
+        <p class="point">12 points</p>
+        <p class="point">13 points</p>
+        <p class="point">14 points</p>
+        <p class="point">15 points</p>`;
 
   root.appendChild(pointsBox);
 }
