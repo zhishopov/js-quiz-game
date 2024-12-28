@@ -51,12 +51,13 @@ function checkAnswer(event) {
 
   if (correctAnswer.classList.contains("correct")) {
     correctAnswer.style.backgroundColor = "green";
+    showCountdown(5);
 
     // Go to next question after a short time
     setTimeout(() => {
       currentQuestionIndex++;
       displayQuestion(currentQuestionIndex);
-    }, 3000);
+    }, 5000);
   } else {
     answers.forEach((answer) => {
       if (answer.classList.contains("incorrect")) {
@@ -112,3 +113,10 @@ function displayPoints() {
   root.appendChild(pointsBox);
 }
 displayPoints();
+
+function showCountdown(time) {
+  const count = document.createElement("p");
+  count.textContent = `Next question in ${time} seconds!`;
+
+  root.querySelector(".question-box").appendChild(count);
+}
