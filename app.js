@@ -5,6 +5,14 @@ root.addEventListener("click", checkAnswer);
 let currentQuestionIndex = 0;
 let currentPoint = 0;
 
+function displayBonus() {
+  const joker = document.createElement("button");
+  joker.textContent = "50/50";
+  joker.className = "joker";
+
+  root.appendChild(joker);
+}
+
 function displayQuestion(index) {
   // Reset container
   root.innerHTML = "";
@@ -38,6 +46,7 @@ function displayQuestion(index) {
         </div>
     `;
   root.appendChild(questionBox);
+  displayBonus();
 }
 
 function displayPoints() {
@@ -146,3 +155,5 @@ function highlight() {
     currentPoint++;
   }
 }
+
+// function removeTwoAnswers() {}
