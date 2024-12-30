@@ -4,6 +4,7 @@ const root = document.getElementsByClassName("container")[0];
 root.addEventListener("click", checkAnswer);
 let currentQuestionIndex = 0;
 let currentPoint = 0;
+let jokerUsed = false;
 
 function displayBonus() {
   const joker = document.createElement("button");
@@ -11,6 +12,7 @@ function displayBonus() {
   joker.className = "joker";
 
   root.appendChild(joker);
+  joker.addEventListener("click", removeTwoAnswers);
 }
 
 function displayQuestion(index) {
@@ -47,7 +49,6 @@ function displayQuestion(index) {
     `;
   root.appendChild(questionBox);
   displayBonus();
-  removeTwoAnswers();
 }
 
 function displayPoints() {
@@ -161,6 +162,10 @@ function removeTwoAnswers() {
   const joker = document.querySelector(".joker");
 
   joker.addEventListener("click", () => {
+    if (jokerUsed) {
+      return;
+    }
+
     const answers = Array.from(document.querySelectorAll(".answer"));
     const incorrectAnswers = [];
 
@@ -174,5 +179,9 @@ function removeTwoAnswers() {
     for (let i = 0; i < 2; i++) {
       incorrectAnswers[i].remove();
     }
+
+    // Disable the joker button
+    joker.disabled = true;
+    jokerUsed = true;
   });
 }
