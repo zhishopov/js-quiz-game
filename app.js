@@ -47,6 +47,7 @@ function displayQuestion(index) {
     `;
   root.appendChild(questionBox);
   displayBonus();
+  removeTwoAnswers();
 }
 
 function displayPoints() {
@@ -156,4 +157,22 @@ function highlight() {
   }
 }
 
-// function removeTwoAnswers() {}
+function removeTwoAnswers() {
+  const joker = document.querySelector(".joker");
+
+  joker.addEventListener("click", () => {
+    const answers = Array.from(document.querySelectorAll(".answer"));
+    const incorrectAnswers = [];
+
+    for (let i = 0; i < answers.length; i++) {
+      const currentAnswer = answers[i];
+      if (currentAnswer.classList.contains("incorrect")) {
+        incorrectAnswers.push(currentAnswer);
+      }
+    }
+
+    for (let i = 0; i < 2; i++) {
+      incorrectAnswers[i].remove();
+    }
+  });
+}
