@@ -98,6 +98,12 @@ function checkAnswer(event) {
       }
     });
 
+    // Highlight current point in red
+    const points = document.querySelectorAll(".point");
+    if (currentPoint < points.length) {
+      points[currentPoint].style.color = "red";
+    }
+
     setTimeout(() => {
       root.innerHTML = `
       <h2>Game Over! You selected the wrong answer!</h2>
