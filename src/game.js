@@ -23,7 +23,7 @@ export function checkAnswer(event, root, questions, state) {
       state.currentQuestionIndex++;
       displayQuestion(root, state.currentQuestionIndex, questions);
       displayPoints(root, state.currentPoint);
-    }, 5000);
+    }, 1500);
   } else {
     answers.forEach((answer) => {
       if (answer.classList.contains("incorrect")) {
@@ -54,5 +54,7 @@ function highlightPoints(currentPoint) {
   const points = document.querySelectorAll(".point");
   if (currentPoint <= points.length) {
     points[currentPoint - 1].style.color = "green";
+  } else {
+    points[currentPoint - 1].style.color = "red";
   }
 }
